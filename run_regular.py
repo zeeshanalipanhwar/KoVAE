@@ -182,6 +182,9 @@ def main(args):
     print('test/pred_mean: ', pred_mean)
     print('test/pred_std: ', pred_std)
 
+    visualization (ori_data, generated_data, analysis='tsne', args, run=None)
+    visualization (ori_data, generated_data, analysis='pcs', args, run=None)
+
 
 if __name__ == '__main__':
     main(args)
