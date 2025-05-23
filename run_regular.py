@@ -168,13 +168,19 @@ def main(args):
     # deterministic eval
     args.device = set_seed_device(args.seed)
     disc_res = []
+    pred_res = []
     for ii in range(10):
         dsc = discriminative_score_metrics(ori_data, generated_data, args)
         disc_res.append(dsc)
+        prd = predictive_score_metrics(ori_data, generated_data, args)
+        pred_res.append(prd)
     disc_mean, disc_std = np.round(np.mean(disc_res), 4), np.round(np.std(disc_res), 4)
-
     print('test/disc_mean: ', disc_mean)
     print('test/disc_std: ', disc_std)
+    
+    pred_mean, pred_std = np.round(np.mean(pred_res), 4), np.round(np.std(pred_res), 4)
+    print('test/pred_mean: ', pred_mean)
+    print('test/pred_std: ', pred_std)
 
 
 if __name__ == '__main__':
